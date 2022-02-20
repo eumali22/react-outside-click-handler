@@ -21,6 +21,7 @@ const propTypes = forbidExtraProps({
   disabled: PropTypes.bool,
   useCapture: PropTypes.bool,
   display: PropTypes.oneOf(objectValues(DISPLAY)),
+  customClass: PropTypes.string,
 });
 
 const defaultProps = {
@@ -119,7 +120,7 @@ export default class OutsideClickHandler extends React.Component {
   }
 
   render() {
-    const { children, display } = this.props;
+    const { children, display, customClass } = this.props;
 
     return (
       <div
@@ -129,6 +130,7 @@ export default class OutsideClickHandler extends React.Component {
             ? { display }
             : undefined
         }
+        className={customClass}
       >
         {children}
       </div>
